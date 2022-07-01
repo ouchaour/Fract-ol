@@ -30,6 +30,18 @@ the function will do it for you.
 calculate the postition of the pixel you want on the char* then change the 3 first chars.
 -4 Display the image: use mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, x, y).
 
+		** Mandelbrot **
+-The Mandelbrot set is a fractal which is defined as the set of points c of 
+the complex plane for which the recurrent sequence defined by : Zn+1​=Zn2​ + c and 
+the condition Zo=0, does not tend to infinity(en module |z|).
+-Mandelbrot est toujours compris entre -2.1 et 0.6 sur l’axe des abscisse et 
+entre -1.2 et 1.2 sur l’axe des ordonnées.
+- we choose the domain 2, -2 because the suite of mandelbrot converge at 2.
+-...
+		** **
+-events : we use it to write interactive applications in MiniLibX, There are a number of 
+events to which you may describe, we interest' bout those:(...).
+-hook : function that gets called whenever a event is triggered, It allows you to register to any 
+of the aforementioned events with the call of a simple hook registration function.
 
-
-
+-mlx_hook()

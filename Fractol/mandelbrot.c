@@ -6,7 +6,7 @@
 /*   By: yait-ouc <yait-ouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 15:53:25 by yait-ouc          #+#    #+#             */
-/*   Updated: 2022/07/01 19:09:15 by yait-ouc         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:15:04 by yait-ouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	m_init(t_mlx *mlx)
 	mlx->type = 1;
 	mlx->win = mlx_new_window(mlx->ptr, WIDTH, HEIGHT, "mandelbrot");
 	mlx->img_ptr = mlx_new_image(mlx->ptr, WIDTH, HEIGHT);
-	mlx->img_str = (int *)mlx_get_data_addr(mlx->img_ptr,&(mlx->bpp), &(mlx->l), &(mlx->endian));
+	mlx->img_str = (int *)mlx_get_data_addr(mlx->img_ptr, &(mlx->bpp), \
+	&(mlx->l), &(mlx->endian));
 }
 
 void	m_calcul(t_mlx *mlx, int x, int y)
@@ -40,7 +41,8 @@ void	m_calcul(t_mlx *mlx, int x, int y)
 	mlx->z.r = 0.0;
 	mlx->z.i = 0.0;
 	mlx->tmp = mlx->z;
-	while (mlx->z.r * mlx->z.r + mlx->z.i * mlx->z.i < 4 && mlx->iter < MAX_ITER)
+	while (mlx->z.r * mlx->z.r + mlx->z.i * mlx->z.i < 4 \
+	&& mlx->iter < MAX_ITER)
 	{
 		mlx->tmp.r = mlx->z.r * mlx->z.r - mlx->z.i * mlx->z.i + mlx->c.r;
 		mlx->tmp.i = 2 * mlx->z.r * mlx->z.i + mlx->c.i;
@@ -65,7 +67,7 @@ void	m_draw(t_mlx	*mlx)
 				mlx->color = mlx->newcolor;
 			else
 				mlx->color = mlx->newcolor * mlx->iter;
-			my_mlx_pixel_put(x, y , mlx->img_str, mlx->color);
+			my_mlx_pixel_put(x, y, mlx->img_str, mlx->color);
 		}
 	}
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img_ptr, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: yait-ouc <yait-ouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 18:41:44 by yait-ouc          #+#    #+#             */
-/*   Updated: 2022/07/02 22:12:58 by yait-ouc         ###   ########.fr       */
+/*   Updated: 2022/07/03 11:41:27 by yait-ouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,5 @@ int	main(int ac, char **av)
 	else
 		notif();
 	free(mlx);
-	getchar();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yait-ouc <yait-ouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 15:37:56 by yait-ouc          #+#    #+#             */
-/*   Updated: 2022/07/02 22:14:42 by yait-ouc         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:05:22 by yait-ouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ void	my_mlx_pixel_put(int x, int y, int *str, int clr);
 double	interpolate(double start, double end, double i);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *s);
-void	checker(t_mlx *mlx);
+int	checker(t_mlx *mlx);
 // Events;
 int		close_win(void);
-void	ft_clear_image(t_mlx *mlx);
-int		mouse_move(int x, int y, void *param);
-int		key_press(int keycode, void *param);
+//void	ft_clear_image(t_mlx *mlx);
+int		mouse_move(int x, int y, t_mlx	*mlx);
+int		key_press(int keycode, t_mlx	*mlx);
 int		mouse_press(int button, int x, int y, t_mlx *mlx);
 
 #endif

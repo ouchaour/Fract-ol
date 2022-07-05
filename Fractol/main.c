@@ -6,7 +6,7 @@
 /*   By: yait-ouc <yait-ouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 18:41:44 by yait-ouc          #+#    #+#             */
-/*   Updated: 2022/07/03 11:41:27 by yait-ouc         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:08:02 by yait-ouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	notif(void)
 
 int	main(int ac, char **av)
 {
-	t_mlx	*mlx;
 
+	t_mlx	*mlx;
 	mlx = (t_mlx *)malloc(sizeof(t_mlx));
 	if (!mlx)
 		exit(EXIT_FAILURE);
@@ -35,12 +35,15 @@ int	main(int ac, char **av)
 			ft_julia(mlx);
 		else if (!(ft_strcmp(av[1], "3")))
 			ft_burningship(mlx);
-		else
+		else{
+			free(mlx);
 			return (ft_putstr("Please enter a valid number.\n"), 0);
+		}
 		mlx_hook(mlx->win, 6, 0, mouse_move, (void *)mlx);
 		mlx_hook(mlx->win, 4, 0, mouse_press, (void *)mlx);
 		mlx_hook(mlx->win, 2, 0, key_press, (void *)mlx);
 		mlx_hook(mlx->win, 17, 0, close_win, (void *)mlx);
+		mlx_loop_hook(mlx->ptr, checker, (void *)mlx);
 		mlx_loop(mlx->ptr);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: yait-ouc <yait-ouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:00:03 by yait-ouc          #+#    #+#             */
-/*   Updated: 2022/07/02 21:10:10 by yait-ouc         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:13:50 by yait-ouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,21 @@
 
 int	close_win(void)
 {
-	exit(0);
+	while(1);
+	exit (0);
 }
 
-void	ft_clear_image(t_mlx	*mlx)
+int	mouse_move(int x, int y, t_mlx	*mlx)
 {
-	int	i;
-
-	i = -1;
-	while (++i < (WIDTH * HEIGHT))
-		mlx->img_str[i] = 0x000000;
-}
-
-int	mouse_move(int x, int y, void *param)
-{
-	t_mlx	*mlx;
-
-	mlx = (t_mlx *)malloc((sizeof(t_mlx)));
-	mlx = param;
 	mlx->x = x;
 	mlx->y = y;
 	checker(mlx);
 	return (0);
 }
 
-int	key_press(int keycode, void *param)
+int	key_press(int keycode, t_mlx	*mlx)
 {
-	t_mlx	*mlx;
-
-	mlx = (t_mlx *)malloc((sizeof(t_mlx)));
-	mlx = param;
+	
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 126)
@@ -60,7 +45,8 @@ int	key_press(int keycode, void *param)
 		mlx->newcolor = COLORB;
 	else if (keycode == 20)
 		mlx->newcolor = COLORC;
-	ft_clear_image(mlx);
+	// ft_clear_image(mlx);
+	//mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	checker(mlx);
 	return (0);
 }
@@ -82,7 +68,8 @@ int	mouse_press(int button, int x, int y, t_mlx *mlx)
 	mlx->immin = interpolate(mousi, mlx->immin, mlx->interpolation);
 	mlx->remax = interpolate(mousr, mlx->remax, mlx->interpolation);
 	mlx->immax = interpolate(mousi, mlx->immax, mlx->interpolation);
-	ft_clear_image(mlx);
+	// ft_clear_image(mlx);
+	//mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	checker(mlx);
 	return (0);
 }

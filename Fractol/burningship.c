@@ -6,7 +6,7 @@
 /*   By: yait-ouc <yait-ouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 20:31:36 by yait-ouc          #+#    #+#             */
-/*   Updated: 2022/07/03 13:47:49 by yait-ouc         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:12:48 by yait-ouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	b_calcul(t_mlx *mlx, int x, int y)
 	mlx->tmp = mlx->z;
 	while (mlx->z.r * mlx->z.r + mlx->z.i * mlx->z.i < 4 && mlx->iter < 100)
 	{
-		mlx->tmp.r = sqrt(fabs(mlx->z.r) * fabs(mlx->z.r)) - \
-		sqrt(fabs(mlx->z.i) * fabs(mlx->z.i)) + mlx->c.r;
-		mlx->tmp.i = 2 * sqrt(fabs(mlx->z.r) * fabs(mlx->z.i)) + mlx->c.i;
+		mlx->tmp.r = fabs(mlx->z.r) * fabs(mlx->z.r) - \
+		fabs(mlx->z.i) * fabs(mlx->z.i) + mlx->c.r;
+		mlx->tmp.i = 2 * fabs(mlx->z.r) * fabs(mlx->z.i) + mlx->c.i;
 		mlx->z = mlx->tmp;
 		mlx->iter++;
 	}

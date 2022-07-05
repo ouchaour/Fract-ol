@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/yait-ouc/Desktop/vers1/Fractol'
-gcc -c *.c
-gcc -Wall -Wextra -Werror -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit  *.o  -o fractol
-make: Leaving directory `/Users/yait-ouc/Desktop/vers1/Fractol'
- 

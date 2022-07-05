@@ -6,15 +6,15 @@
 /*   By: yait-ouc <yait-ouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:00:03 by yait-ouc          #+#    #+#             */
-/*   Updated: 2022/07/05 17:13:50 by yait-ouc         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:05:25 by yait-ouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	close_win(void)
+int	close_win(t_mlx *mlx)
 {
-	while(1);
+	free(mlx);
 	exit (0);
 }
 
@@ -28,7 +28,6 @@ int	mouse_move(int x, int y, t_mlx	*mlx)
 
 int	key_press(int keycode, t_mlx	*mlx)
 {
-	
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 126)
@@ -45,8 +44,6 @@ int	key_press(int keycode, t_mlx	*mlx)
 		mlx->newcolor = COLORB;
 	else if (keycode == 20)
 		mlx->newcolor = COLORC;
-	// ft_clear_image(mlx);
-	//mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	checker(mlx);
 	return (0);
 }
@@ -68,8 +65,6 @@ int	mouse_press(int button, int x, int y, t_mlx *mlx)
 	mlx->immin = interpolate(mousi, mlx->immin, mlx->interpolation);
 	mlx->remax = interpolate(mousr, mlx->remax, mlx->interpolation);
 	mlx->immax = interpolate(mousi, mlx->immax, mlx->interpolation);
-	// ft_clear_image(mlx);
-	//mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	checker(mlx);
 	return (0);
 }

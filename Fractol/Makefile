@@ -11,14 +11,26 @@
 # **************************************************************************** #
 
 
-NAME = fractol
-HD = fractol.h
+CC=gcc
+CFLAGS=-Wall -Wextra -Werror 
+
+NAME=fractol
+
+SRCS=	main.c utils.c events.c \
+		mandelbrot.c julia.c burningship.c
+HD= fractol.h
+
+OBJCTS=$(SRCS:%.c=%.o)
+
+$(NAME) : $(OBJCTS) $(HD)
+		CC $(CFLAGS) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit $(OBJCTS) -o $(NAME)
+
 all : $(NAME)
-$(NAME) : $(HD)
-	gcc -c *.c
-	gcc -Wall -Wextra -Werror -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit  *.o  -o $(NAME)
+
 clean :
-	rm -rf *.o
+	rm -rf $(OBJCTS)
+
 fclean : clean
 	rm -rf $(NAME)
+
 re : fclean all

@@ -1,5 +1,5 @@
 # Fract-ol
-a simple project where i create 3 fractals with some proprities (zoom, change colors ...), in order to be familiare with graphics stuff and GUI system
+a simple project that its aim to Discover 2D programming and the psychedelic universe of fractals, using minilibX and C language. where i create 3 fractals with some proprities (zoom, change colors ...), in order to be familiare with graphics stuff and GUI system
 , by coding.
 ## You Should know :##
 

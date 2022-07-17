@@ -51,4 +51,4 @@ of the aforementioned events with the call of a simple hook registration functio
 
 
 
-                                                      (c) Youssef Ait Ouchaour
+                                               (c) Youssef Ait Ouchaour
